@@ -9,10 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by vasyl on 1/31/16.
@@ -74,6 +71,7 @@ public class NEODySTools {
         int month = calendar.get(Calendar.MONTH) + 1; // Jan = 0, dec = 11
         int day = calendar.get(Calendar.DAY_OF_MONTH) + 1;
 
+
         driver1.get(link);
         String xObservartory = ".//*[@id='mainContent2']/form/table/tbody/tr[1]/td[2]/input";
         String xBeginYear = ".//*[@id='mainContent2']/form/table/tbody/tr[2]/td[2]/input[1]";
@@ -96,7 +94,7 @@ public class NEODySTools {
         setValueByXPath(driver1, xBeginYear, Integer.toString(year));
         setValueByXPath(driver1, xBeginMonth, Integer.toString(month));
         setValueByXPath(driver1, xBeginDay, Integer.toString(day));
-        setValueByXPath(driver1, xBeginHouts, "18");
+        setValueByXPath(driver1, xBeginHouts, "15");
         setValueByXPath(driver1, xBeginMinutes, "0");
 
         setValueByXPath(driver1, xEndYear, Integer.toString(year));
