@@ -65,7 +65,7 @@ public class NEODySTools {
         String result = "";
         String link = baseBodyLink + bodyNumber;
         WebDriver driver1 = new FirefoxDriver();
-
+// bug with end and beginig of two monthes !!!!!
         Calendar calendar = new GregorianCalendar();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1; // Jan = 0, dec = 11
