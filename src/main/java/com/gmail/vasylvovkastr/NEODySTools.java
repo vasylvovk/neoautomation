@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
@@ -66,10 +67,11 @@ public class NEODySTools {
         String link = baseBodyLink + bodyNumber;
         WebDriver driver1 = new FirefoxDriver();
 // bug with end and beginig of two monthes !!!!!
-        Calendar calendar = new GregorianCalendar();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH) + 1; // Jan = 0, dec = 11
-        int day = calendar.get(Calendar.DAY_OF_MONTH) + 1;
+        ZonedDateTime zdt = ZonedDateTime.now();
+        int year = zdt.getYear();
+        int month = zdt.getMonthValue();
+        int day = zdt.getDayOfMonth();
+        zdt = zdt.plusDays(1);
 
 
         driver1.get(link);
@@ -97,9 +99,9 @@ public class NEODySTools {
         setValueByXPath(driver1, xBeginHouts, "15");
         setValueByXPath(driver1, xBeginMinutes, "0");
 
-        setValueByXPath(driver1, xEndYear, Integer.toString(year));
-        setValueByXPath(driver1, xEndMonth, Integer.toString(month));
-        setValueByXPath(driver1, xEndDay, Integer.toString(day + 1));
+        setValueByXPath(driver1, xEndYear, Integer.toString(zdt.getYear()));
+        setValueByXPath(driver1, xEndMonth, Integer.toString(zdt.getMonthValue()));
+        setValueByXPath(driver1, xEndDay, Integer.toString(zdt.getDayOfMonth()));
         setValueByXPath(driver1, xEndHouts, "6");
         setValueByXPath(driver1, xEndMinutes, "0");
 
