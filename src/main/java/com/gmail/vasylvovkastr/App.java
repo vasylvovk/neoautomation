@@ -12,7 +12,8 @@ public class App {
     public static void main(String... args) {
         String savePath = args[0];
         NEODySTools neoDySTools = new NEODySTools();
-        List<String> bodyList = neoDySTools.getAstList(ref);
+        List<String> bodyList = neoDySTools.getAstList(ref.replace("lel=", "lel=30").replace("uel=","uel=180"));
+        bodyList.addAll(neoDySTools.getAstList(ref.replace("lel=", "lel=-30").replace("uel=", "uel=-180")));
         System.out.println(bodyList);
         String htmlText;
         for (String item : bodyList) {
