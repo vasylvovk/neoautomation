@@ -3,14 +3,15 @@ package com.gmail.vasylvovkastr;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.ZonedDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by vasyl on 1/31/16.
@@ -46,7 +47,7 @@ public class NEODySTools {
 
     public List<String> getAstList(String ref) {
         List res = new ArrayList();
-        WebDriver driver = new FirefoxDriver();
+        WebDriver driver = new ChromeDriver();
         driver.get(ref);
         List<WebElement> element = driver.findElements(By.className("colorNeaLink"));
         for (WebElement item : element) {
@@ -65,7 +66,7 @@ public class NEODySTools {
     public String getAstBody(String bodyNumber) {
         String result = "";
         String link = baseBodyLink + bodyNumber;
-        WebDriver driver1 = new FirefoxDriver();
+        WebDriver driver1 = new ChromeDriver();
 // bug with end and beginig of two monthes !!!!!
         ZonedDateTime zdt = ZonedDateTime.now();
         int year = zdt.getYear();
